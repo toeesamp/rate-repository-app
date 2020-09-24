@@ -6,7 +6,7 @@ import theme from '../theme';
 
 const styles = StyleSheet.create({
     container: {
-        padding: theme.paddings.big
+        padding: theme.paddingsAndMargins.big
     },
     text: {
         color: theme.colors.appBarText,

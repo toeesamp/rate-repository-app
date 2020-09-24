@@ -4,7 +4,9 @@ const theme = {
       textSecondary: '#586069',
       appBarText: 'white',
       primary: '#0366d6',
-      appBarColor: '#24292e'
+      appBarColor: '#24292e',
+      mainBackground: '#e1e4e8',
+      languageBackground: '#0366d6'
     },
     fontSizes: {
       body: 14,
@@ -17,7 +19,8 @@ const theme = {
       normal: '400',
       bold: '700',
     },
-    paddings: {
+    paddingsAndMargins: {
+        small: 5,
         normal: 10,
         big: 20,
         yuge: 30

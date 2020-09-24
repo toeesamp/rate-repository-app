@@ -25,7 +25,6 @@ const AppBar = () => {
     };
 
     return (
-
         <View style={styles.container}>
             <TouchableWithoutFeedback onPress={onPress}>
                 <AppBarTab ref={repositoryTabRef} text={"Repositories"} />
