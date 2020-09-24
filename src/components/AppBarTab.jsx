@@ -25,25 +25,6 @@ const AppBarTab = (props) => {
     );
 };
 
-{/* <View {...props} style={styles.container}>
-<Link to={props.linkAddress} component={TouchableWithoutFeedback}>
-    <Text style={styles.text}>{props.text}</Text>
-</Link>
-</View> */}
+// AppBarTab.displayName = 'AppBarTab';
 
-
-// const AppBarTab = React.forwardRef((props, ref) => {
-//     return (
-//         <TouchableWithoutFeedback>
-//             <View {...props} ref={ref} style={styles.container}>
-//                 <Link to={props.linkAddress}>
-//                     <Text style={styles.text}>{props.text}</Text>
-//                 </Link>
-//             </View>
-//         </TouchableWithoutFeedback>
-//     );
-// });
-
-
-AppBarTab.displayName = 'AppBarTab';
 export default AppBarTab;
