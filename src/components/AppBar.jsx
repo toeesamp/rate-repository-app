@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import theme from '../theme';
 import AppBarTab from "./AppBarTab";
@@ -18,20 +18,39 @@ const styles = StyleSheet.create({
 
 const AppBar = () => {
 
-    const repositoryTabRef = useRef();
+    // const repositoryTabRef = useRef();
+    // const loginTabRef = useRef();
 
-    const onPress = () => {
-        console.log('repository tab button pressed');
-    };
+
+    // const showRepositories = () => {
+    //     console.log('repository tab button pressed');
+    // };
+
+    // const showLogin = () => {
+    //     console.log('login tab button pressed');
+    // };
 
     return (
         <View style={styles.container}>
-            <TouchableWithoutFeedback onPress={onPress}>
-                <AppBarTab ref={repositoryTabRef} text={"Repositories"} />
-            </TouchableWithoutFeedback>
+            <AppBarTab text={"Repositories"} linkAddress={"/"} />
+            <AppBarTab text={"Sign in"} linkAddress={"/signin"} />
         </View>
     );
 };
+
+{/* <View style={styles.container}>
+<AppBarTab ref={repositoryTabRef} text={"Repositories"} linkAddress={"/"} />
+<AppBarTab ref={loginTabRef} text={"Login"} linkAddress={"/signin"} />
+</View> */}
+
+{/* <View style={styles.container}>
+<TouchableWithoutFeedback onPress={showRepositories}>
+    <AppBarTab ref={repositoryTabRef} text={"Repositories"} />
+</TouchableWithoutFeedback>
+<TouchableWithoutFeedback onPress={showLogin}>
+    <AppBarTab ref={loginTabRef} text={"Login"} />
+</TouchableWithoutFeedback>
+</View> */}
 
 AppBar.displayName = 'AppBar';
 

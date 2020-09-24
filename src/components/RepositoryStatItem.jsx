@@ -11,11 +11,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     boldText: {
-        fontSize: 14,
+        fontSize: theme.fontSizes.body,
         fontWeight: theme.fontWeights.bold
     },
     text: {
-        fontSize: 14
+        fontSize: theme.fontSizes.body
     }
 });
 

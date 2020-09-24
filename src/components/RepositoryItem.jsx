@@ -30,11 +30,11 @@ const styles = StyleSheet.create({
         justifyContent: "space-around",
     },
     boldText: {
-        fontSize: 18,
+        fontSize: theme.fontSizes.heading,
         fontWeight: theme.fontWeights.bold
     },
     text: {
-        fontSize: 16
+        fontSize: theme.fontSizes.subheading
     },
     avatar: {
         width: 40,
