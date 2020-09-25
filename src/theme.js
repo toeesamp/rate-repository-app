@@ -6,7 +6,8 @@ const theme = {
       primary: '#0366d6',
       appBarColor: '#24292e',
       mainBackground: '#e1e4e8',
-      languageBackground: '#0366d6'
+      languageBackground: '#0366d6',
+      error: '#d73a4a'
     },
     fontSizes: {
       body: 14,
@@ -23,7 +24,7 @@ const theme = {
     paddingsAndMargins: {
         small: 5,
         normal: 10,
-        big: 20,
+        big: 15,
         yuge: 30
     }
   };
