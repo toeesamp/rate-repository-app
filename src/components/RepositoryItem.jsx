@@ -10,13 +10,11 @@ const styles = StyleSheet.create({
         paddingBottom: theme.paddingsAndMargins.normal
     },
     upperContainer: {
-        // backgroundColor: 'red',
         display: "flex",
         flexDirection: "row",
         alignItems: "flex-start"
     },
     upperInnerContainer: {
-        // backgroundColor: 'lime',
         display: "flex",
         flexDirection: "column",
         alignItems: "flex-start",
@@ -24,17 +22,18 @@ const styles = StyleSheet.create({
         flexShrink: 1
     },
     lowerContainer: {
-        // backgroundColor: 'deepskyblue',
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-around",
     },
     boldText: {
         fontSize: theme.fontSizes.heading,
-        fontWeight: theme.fontWeights.bold
+        fontWeight: theme.fontWeights.bold,
+        fontFamily: theme.fonts
     },
     text: {
-        fontSize: theme.fontSizes.subheading
+        fontSize: theme.fontSizes.subheading,
+        fontFamily: theme.fonts
     },
     avatar: {
         width: 40,
@@ -50,7 +49,6 @@ const styles = StyleSheet.create({
         padding: 3,
         marginTop: 5
     }
-
 });
 
 const RepositoryItem = ({ item }) => {

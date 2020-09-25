@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-// import Constants from 'expo-constants';
 import Text from "./Text";
 import theme from '../theme';
 import { Link } from 'react-router-native';
@@ -11,7 +10,8 @@ const styles = StyleSheet.create({
     },
     text: {
         color: theme.colors.appBarText,
-        fontWeight: theme.fontWeights.bold
+        fontWeight: theme.fontWeights.bold,
+        fontFamily: theme.fonts
     }
 });
 
@@ -24,7 +24,5 @@ const AppBarTab = (props) => {
         </Link>
     );
 };
-
-// AppBarTab.displayName = 'AppBarTab';
 
 export default AppBarTab;

@@ -10,7 +10,8 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.appBarColor,
     },
     text: {
-        color: theme.colors.appBarText
+        color: theme.colors.appBarText,
+        fontFamily: theme.fonts
     },
     scrollView: {
         display:"flex",
@@ -28,7 +29,5 @@ const AppBar = () => {
         </View>
     );
 };
-
-// AppBar.displayName = 'AppBar';
 
 export default AppBar;

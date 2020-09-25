@@ -5,17 +5,18 @@ import Text from "./Text";
 
 const styles = StyleSheet.create({
     lowerInnerContainer: {
-        // backgroundColor: 'deepskyblue',
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
     },
     boldText: {
         fontSize: theme.fontSizes.body,
-        fontWeight: theme.fontWeights.bold
+        fontWeight: theme.fontWeights.bold,
+        fontFamily: theme.fonts
     },
     text: {
-        fontSize: theme.fontSizes.body
+        fontSize: theme.fontSizes.body,
+        fontFamily: theme.fonts
     }
 });
 
