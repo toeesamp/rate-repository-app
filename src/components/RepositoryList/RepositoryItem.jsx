@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View, StyleSheet } from 'react-native';
-import theme from '../theme';
-import Text from "./Text";
+import theme from '../../theme';
+import Text from "../Text";
 import RepositoryStatItem from "./RepositoryStatItem";
 
 const styles = StyleSheet.create({

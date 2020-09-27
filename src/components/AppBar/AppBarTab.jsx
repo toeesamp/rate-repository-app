@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import Text from "./Text";
-import theme from '../theme';
+import Text from './../Text';
+import theme from '../../theme';
 import { Link } from 'react-router-native';
 
 const styles = StyleSheet.create({

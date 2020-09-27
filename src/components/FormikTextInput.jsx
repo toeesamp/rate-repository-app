@@ -12,36 +12,12 @@ const styles = StyleSheet.create({
         marginLeft: 15,
         color: theme.colors.error
     },
-    inputField: {
-        borderColor: "gray",
-        borderStyle: "solid",
-        borderWidth: 1,
-        borderRadius: 5,
-        marginHorizontal: theme.paddingsAndMargins.normal,
-        marginTop: theme.paddingsAndMargins.normal,
-        paddingVertical: theme.paddingsAndMargins.normal,
-        paddingHorizontal: theme.paddingsAndMargins.big
-    },
-    inputFieldError: {
-        borderColor: theme.colors.error,
-        borderStyle: "solid",
-        borderWidth: 1,
-        borderRadius: 5,
-        marginHorizontal: theme.paddingsAndMargins.normal,
-        marginTop: theme.paddingsAndMargins.normal,
-        paddingVertical: theme.paddingsAndMargins.normal,
-        paddingHorizontal: theme.paddingsAndMargins.big
-    }
 });
 
 const FormikTextInput = ({ name, secure, ...props }) => {
     const [field, meta, helpers] = useField(name);
     const showError = meta.touched && meta.error;
-    let inputFieldStyle = styles.inputField;
 
-    if (showError) {
-        inputFieldStyle = styles.inputFieldError;
-    }
     return (
         <>
             <TextInput
@@ -50,7 +26,6 @@ const FormikTextInput = ({ name, secure, ...props }) => {
                 value={field.value}
                 error={showError}
                 secureTextEntry={secure}
-                style={inputFieldStyle}
                 {...props}
             />
             {showError && <Text style={styles.errorText}>{meta.error}</Text>}
