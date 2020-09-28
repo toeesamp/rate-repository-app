@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
+import { useApolloClient } from '@apollo/client';
 
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
 import SignIn from "./SignIn";
 import theme from '../theme';
+import AuthStorageContext from '../contexts/AuthStorageContext';
 
 
 const styles = StyleSheet.create({
@@ -15,6 +17,14 @@ const styles = StyleSheet.create({
         backgroundColor: theme.colors.mainBackground
     },
 });
+
+const signOutUser = async () => {
+    console.log('test');
+    const authStorage = useContext(AuthStorageContext);
+    const apolloClient = useApolloClient();
+    await authStorage.removeAccessToken();
+    await apolloClient.resetStore();
+};
 
 const Main = () => {
     return (
@@ -27,6 +37,7 @@ const Main = () => {
                 <Route path="/signin" exact>
                     <SignIn />
                 </Route>
+                
                 <Redirect to="/" />
             </Switch>
         </View>
@@ -34,3 +45,7 @@ const Main = () => {
 };
 
 export default Main;
+
+{/* <Route path="/signout" exact>
+                    {() => signOutUser()}
+                </Route> */}

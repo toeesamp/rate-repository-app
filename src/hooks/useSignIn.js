@@ -17,7 +17,7 @@ const useSignIn = () => {
         // console.log('mutateResponse', mutateResponse);
         // console.log('accessToken', mutateResponse.data.authorize.accessToken);
         await authStorage.setAccessToken(mutateResponse.data.authorize.accessToken);
-        apolloClient.resetStore();
+        await apolloClient.resetStore();
         return mutateResponse;
     };
   
