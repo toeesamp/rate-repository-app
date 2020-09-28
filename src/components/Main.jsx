@@ -1,16 +1,18 @@
-// import React, { useContext, useEffect } from 'react';
 import React from 'react';
+// import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
+import { useQuery } from '@apollo/react-hooks';
 // import { useApolloClient } from '@apollo/client';
-// import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import RepositoryList from "./RepositoryList";
+import RepositoryItem from './RepositoryList/RepositoryItem';
 import AppBar from "./AppBar";
 import SignIn from "./SignIn";
 import theme from '../theme';
-// import AuthStorageContext from '../contexts/AuthStorageContext';
-// import Text from './Text';
+import { GET_REPOSITORY } from '../graphql/queries';
+
 
 
 const styles = StyleSheet.create({
@@ -21,37 +23,35 @@ const styles = StyleSheet.create({
     },
 });
 
-// const SignOut = () => {
-//     let history = useHistory();
-//     const authStorage = useContext(AuthStorageContext);
-//     const apolloClient = useApolloClient();
-    
-//     useEffect(() => {
-//         const signOutUser = async () => {
-//             console.log('test');
-//             await authStorage.removeAccessToken();
-//             await apolloClient.resetStore();
-//         };
-//         signOutUser();
-//         history.push("/");
-//     }, []);
+const SingleRepository = () => {
+    const id = useParams().id;
 
-//     return (
-//         <Text>Signing out...</Text>
-//     );
-// };
+    const { data } = useQuery(GET_REPOSITORY, {
+        variables: {id}
+    });
+
+    return (
+        <>
+            {data && <RepositoryItem item={data.repository} showLink={true} />}
+        </>
+    );
+};
 
 const Main = () => {
     return (
         <View style={styles.container}>
             <AppBar />
             <Switch>
+                <Route path="/repositories/:id">
+                    <SingleRepository />
+                </Route>
                 <Route path="/" exact>
                     <RepositoryList />
                 </Route>
                 <Route path="/signin" exact>
                     <SignIn />
                 </Route>
+
                 <Redirect to="/" />
             </Switch>
         </View>

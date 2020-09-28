@@ -3,6 +3,8 @@ import { Image, View, StyleSheet } from 'react-native';
 import theme from '../../theme';
 import Text from "../Text";
 import RepositoryStatItem from "./RepositoryStatItem";
+import Button from '../Button';
+import * as Linking from 'expo-linking';
 
 const styles = StyleSheet.create({
     mainContainer: {
@@ -48,10 +50,18 @@ const styles = StyleSheet.create({
         color: 'white',
         padding: 3,
         marginTop: 5
+    },
+    button: {
+        marginHorizontal: theme.paddingsAndMargins.normal
     }
 });
 
-const RepositoryItem = ({ item }) => {
+const RepositoryItem = ({ item, showLink }) => {
+
+    const openLink = (link) => {
+        Linking.openURL(link);
+    };
+
     return (
         <View style={styles.mainContainer}>
             <View style={styles.upperContainer}>
@@ -70,6 +80,7 @@ const RepositoryItem = ({ item }) => {
                 <RepositoryStatItem label={"Reviews"} value={item.reviewCount}/>
                 <RepositoryStatItem label={"Rating"} value={item.ratingAverage}/>
             </View>
+            {showLink && <Button style={styles.button} onPress={() => openLink(item.url)}>Open in GitHub</Button>}
         </View>
     );
 };

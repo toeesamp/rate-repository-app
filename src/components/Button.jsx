@@ -8,11 +8,12 @@ const styles = StyleSheet.create({
   container: {
     paddingVertical: 15,
     paddingHorizontal: 20,
+    marginHorizontal: 10,
     minWidth: 64,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: theme.colors.primary,
-    borderRadius: theme.roundness,
+    borderRadius: 5,
   },
   text: {
     color: 'white',
