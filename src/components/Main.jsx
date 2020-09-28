@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
 import { useApolloClient } from '@apollo/client';
+import { useHistory } from 'react-router-dom';
 
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
 import SignIn from "./SignIn";
 import theme from '../theme';
 import AuthStorageContext from '../contexts/AuthStorageContext';
+import Text from './Text';
 
 
 const styles = StyleSheet.create({
@@ -18,12 +20,24 @@ const styles = StyleSheet.create({
     },
 });
 
-const signOutUser = async () => {
-    console.log('test');
+const SignOut = () => {
+    let history = useHistory();
     const authStorage = useContext(AuthStorageContext);
     const apolloClient = useApolloClient();
-    await authStorage.removeAccessToken();
-    await apolloClient.resetStore();
+    
+    useEffect(() => {
+        const signOutUser = async () => {
+            console.log('test');
+            await authStorage.removeAccessToken();
+            await apolloClient.resetStore();
+        };
+        signOutUser();
+        history.push("/");
+    }, []);
+
+    return (
+        <Text>Signing out...</Text>
+    );
 };
 
 const Main = () => {
@@ -37,7 +51,7 @@ const Main = () => {
                 <Route path="/signin" exact>
                     <SignIn />
                 </Route>
-                
+                    <SignOut />
                 <Redirect to="/" />
             </Switch>
         </View>
@@ -45,7 +59,3 @@ const Main = () => {
 };
 
 export default Main;
-
-{/* <Route path="/signout" exact>
-                    {() => signOutUser()}
-                </Route> */}

@@ -1,6 +1,5 @@
 import React from 'react';
 import * as yup from 'yup';
-// import Text from './Text';
 import FormikTextInput from './FormikTextInput';
 import { View, StyleSheet } from 'react-native';
 import { useHistory } from 'react-router-dom';
@@ -8,7 +7,6 @@ import { Formik } from 'formik';
 import theme from '../theme';
 import Button from './Button';
 import useSignIn from '../hooks/useSignIn';
-// import AuthStorage from '../utils/authStorage';
 
 const styles = StyleSheet.create({
     container: {
@@ -57,7 +55,6 @@ const SignInForm = ({ onSubmit }) => {
 const SignIn = () => {
     const [signIn] = useSignIn();
     let history = useHistory();
-    // const authStorage = new AuthStorage('user');
 
     const onSubmit = async (values) => {
         console.log('login values',values);
@@ -65,17 +62,13 @@ const SignIn = () => {
 
         try {
             const { data } = await signIn({ username, password });
-            // console.log('login data',data);
             if (data.authorize.accessToken) {
                 history.push("/");
             }
-            // console.log('token', data.authorize.accessToken);
-
         } catch (e) {
             console.log('caught in signin.jsx',e);
         }
     };
-
 
     return (
         <Formik
