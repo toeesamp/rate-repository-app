@@ -1,15 +1,16 @@
-import React, { useContext, useEffect } from 'react';
+// import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Route, Switch, Redirect } from 'react-router-native';
-import { useApolloClient } from '@apollo/client';
-import { useHistory } from 'react-router-dom';
+// import { useApolloClient } from '@apollo/client';
+// import { useHistory } from 'react-router-dom';
 
 import RepositoryList from "./RepositoryList";
 import AppBar from "./AppBar";
 import SignIn from "./SignIn";
 import theme from '../theme';
-import AuthStorageContext from '../contexts/AuthStorageContext';
-import Text from './Text';
+// import AuthStorageContext from '../contexts/AuthStorageContext';
+// import Text from './Text';
 
 
 const styles = StyleSheet.create({
@@ -20,25 +21,25 @@ const styles = StyleSheet.create({
     },
 });
 
-const SignOut = () => {
-    let history = useHistory();
-    const authStorage = useContext(AuthStorageContext);
-    const apolloClient = useApolloClient();
+// const SignOut = () => {
+//     let history = useHistory();
+//     const authStorage = useContext(AuthStorageContext);
+//     const apolloClient = useApolloClient();
     
-    useEffect(() => {
-        const signOutUser = async () => {
-            console.log('test');
-            await authStorage.removeAccessToken();
-            await apolloClient.resetStore();
-        };
-        signOutUser();
-        history.push("/");
-    }, []);
+//     useEffect(() => {
+//         const signOutUser = async () => {
+//             console.log('test');
+//             await authStorage.removeAccessToken();
+//             await apolloClient.resetStore();
+//         };
+//         signOutUser();
+//         history.push("/");
+//     }, []);
 
-    return (
-        <Text>Signing out...</Text>
-    );
-};
+//     return (
+//         <Text>Signing out...</Text>
+//     );
+// };
 
 const Main = () => {
     return (
@@ -51,7 +52,6 @@ const Main = () => {
                 <Route path="/signin" exact>
                     <SignIn />
                 </Route>
-                    <SignOut />
                 <Redirect to="/" />
             </Switch>
         </View>
