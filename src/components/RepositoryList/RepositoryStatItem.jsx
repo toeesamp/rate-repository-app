@@ -27,7 +27,7 @@ const numberFormatter = (number) => {
 const RepositoryStatItem = ({ label, value }) => {
     return (
         <View style={styles.lowerInnerContainer}>
-            <Text style={styles.boldText}>{numberFormatter(value)}</Text>
+            <Text testID={`repository${label}`} style={styles.boldText}>{numberFormatter(value)}</Text>
             <Text style={styles.text}>{label}</Text>
         </View>
     );

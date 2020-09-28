@@ -59,9 +59,9 @@ const RepositoryItem = ({ item }) => {
                     style={styles.avatar}
                     source={{ uri: item.ownerAvatarUrl }} />
                 <View style={styles.upperInnerContainer}>
-                    <Text style={styles.boldText}>{item.fullName}</Text>
-                    <Text style={styles.text}>{item.description}</Text>
-                    <Text style={styles.language} >{item.language}</Text>
+                    <Text testID="repositoryNameText" style={styles.boldText}>{item.fullName}</Text>
+                    <Text testID="repositoryDescriptionText" style={styles.text}>{item.description}</Text>
+                    <Text testID="repositoryLanguageText" style={styles.language} >{item.language}</Text>
                 </View>
             </View>
             <View style={styles.lowerContainer}>
