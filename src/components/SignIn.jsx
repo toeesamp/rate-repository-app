@@ -47,13 +47,14 @@ const SignInForm = ({ onSubmit }) => {
         <View style={styles.container}>
             <FormikTextInput name="username" placeholder="Username" secure={false} />
             <FormikTextInput name="password" placeholder="Password" secure={true} />
-            <Button style={styles.signInButton} onPress={onSubmit}>Sign in</Button>
+            <Button testID="submitButton" style={styles.signInButton} onPress={onSubmit}>Sign in</Button>
         </View>
     );
 };
 
 const SignIn = () => {
     const [signIn] = useSignIn();
+
     let history = useHistory();
 
     const onSubmit = async (values) => {
@@ -69,6 +70,11 @@ const SignIn = () => {
             console.log('caught in signin.jsx',e);
         }
     };
+
+    return <SignInContainer onSubmit={onSubmit} />;
+};
+
+export const SignInContainer = ({onSubmit}) => {
 
     return (
         <Formik
